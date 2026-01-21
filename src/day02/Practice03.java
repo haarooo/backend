@@ -184,6 +184,10 @@ BMI 지수: 22.34... */
 이메일: admin@test.com
 출력 예시:
 결과: 관리자 */
+        scan.nextLine();
+        System.out.print("아이디 : "); String id1 = scan.nextLine();
+        System.out.print("이메일 : "); String email = scan.nextLine();
+        System.out.println(id.equals("admin") || email.equals("admin@test.com") ? "관리자" : "일반 사용자" );
 
 
 /*[문제 15] Scanner를 이용해 100점 만점의 점수(int)를 입력받아, 점수에 따라 아래와 같이 등급을 부여하고 출력하시오.
@@ -195,6 +199,8 @@ BMI 지수: 22.34... */
 점수를 입력하세요: 88
 출력 예시:
 등급:B */
+        System.out.print("점수 : "); int score = scan.nextInt();
+        System.out.println(score>=90 ? "A" : score>=80 && score<90 ? "B" : score<70 ? "C" : "" );
 
 
 /*[문제 16] Scanner를 이용해 나이(int)를 입력받아, 20대(20세 이상 29세 이하)에 해당하는 경우 "이벤트 대상입니다."를, 그렇지 않으면 "이벤트 대상이 아닙니다."를 출력하시오.
@@ -203,6 +209,10 @@ BMI 지수: 22.34... */
 나이를 입력하세요: 25
 출력 예시:
 이벤트 대상입니다. */
+
+        System.out.print("나이를 입력하세요: "); int age = scan.nextInt();
+        System.out.println(age >= 20 && age <= 29 ? "이벤트 대상입니다." : "이벤트 대상이 아닙니다.");
+
 
 
 
