@@ -281,30 +281,39 @@ viewer: '콘텐츠 조회만 가능합니다.'
 세 번째 정수: 8
 출력 예시: 4, 8, 17 */
 
+        System.out.print("첫번째 정수 : "); int data1 = scan.nextInt();
+        System.out.print("두번째 정수 : "); int data2 = scan.nextInt();
+        System.out.print("세번째 정수 : "); int data3 = scan.nextInt();
+        if(data1 < data2){int temp = data1 ; data1 = data2 ; data2 = temp ;}
+        if(data1 > data3){int temp = data1 ; data1 = data3 ; data3 = temp ;}
+        if(data2 > data3){int temp = data2 ; data2 = data3 ; data3 = temp ;}
+        System.out.println(data1 + data2 + data3);
+
 
 
 
 /*[문제 15] 가위바위보 게임
 
 지시: 두 명의 플레이어가 참여하는 가위바위보 게임을 만드시오.
-
 입력: 플레이어 1과 플레이어 2는 각각 0(가위), 1(바위), 2(보) 중 하나의 숫자를 Scanner로 입력합니다.
-
 출력:
-
 플레이어 1이 이기면 '플레이어1 승리'를 출력합니다.
-
 플레이어 2가 이기면 '플레이어2 승리'를 출력합니다.
-
 두 플레이어가 같은 것을 내면 '무승부'를 출력합니다.
-
 입력 예시:
-
 플레이어1 (0:가위, 1:바위, 2:보): 1
-
 플레이어2 (0:가위, 1:바위, 2:보): 0
-
 출력 예시: 플레이어1 승리 */
+
+        System.out.print(" 플레이어1 입력 : "); int p1 = scan.nextInt();
+        System.out.print(" 플레이어2 입력 : "); int p2 = scan.nextInt();
+        if(p1 == (p2+1)%3){
+            System.out.println("플레이어1 승리");}
+        else if(p1 == p2){
+            System.out.println("무승부");}
+        else{
+            System.out.println("플레이어2 승리");}
+
 
 
 
