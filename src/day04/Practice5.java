@@ -19,7 +19,7 @@ public class Practice5 {
 
 /*[문제 3] for문을 사용하여 1부터 50까지 모든 정수의 합계를 구하여 최종 결과를 출력하시오., 출력 예시: 1부터 50까지의 합계: 1275*/
         int sum = 0;
-        for(int i = 1 ; i<=50 ;i++){
+        for(int i = 1 ; i<=50 ;i++){//수정
             sum+=i;
         System.out.println(sum);
         }
