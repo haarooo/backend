@@ -155,9 +155,13 @@ public class Practice02 {
         menuItem2.name = "된장찌개";
         menuItem2.price = 8000;
         menuItem2.isSignature = false;
+        MenuItem menuItem3 = new MenuItem();
+        menuItem3.name = "계란찜";
+        menuItem3.price = 3000;
+        menuItem3.isSignature = false;
 
 
-        MenuItem[] menuItems = {menuItem1 , menuItem2};
+        MenuItem[] menuItems = {menuItem1 , menuItem2 , menuItem3};
         for(int index = 0 ; index <= menuItems.length-1 ; index++){
             if(menuItems[index].isSignature == true){
                 System.out.println("대표메뉴" + menuItems[index].name + ":"+menuItems[index].price+"원");
