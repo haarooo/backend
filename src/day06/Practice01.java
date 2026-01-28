@@ -81,3 +81,22 @@ public class Practice01 {
 
     }//main end
 }//class end
+
+
+class ParkingLot {
+    int minute;
+    int fee;
+
+
+    int calculateFee(int minute){
+        this.minute = minute;
+        if(minute <= 30){
+            fee = 1000;
+            return fee;
+        }else if(minute > 30 && minute%10 == 0){
+            fee = (minute-30)/10 *500 +1000 ;
+            return fee;
+        }
+        return fee;
+    }
+}
