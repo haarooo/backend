@@ -5,10 +5,13 @@ import 종합예제.종합예제6.Model.Dao.BoardDao;
 import 종합예제.종합예제6.Model.dto.BoardDto;
 import 종합예제.종합예제6.controller.BoardController;
 
+import javax.swing.plaf.PanelUI;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BoardView {
+    private Scanner scan = new Scanner(System.in);
+
     private BoardView(){}
     private static final BoardView instance = new BoardView();
     public static BoardView getInstance(){
@@ -16,13 +19,26 @@ public class BoardView {
     }
     private BoardController bc= BoardController.getInstance();
 
-    //1. 등록 입출력화면
-    private Scanner scan = new Scanner(System.in);
+    //메인페이지
+    public void indexView(){
+        for(;;){
+            Scanner scan = new Scanner(System.in);
+            System.out.println("============= My Community =============");
+            System.out.println("1.게시물쓰기 | 2.게시물출력");
+            System.out.println("======================================");
+            System.out.print("선택>") ; int num = scan.nextInt();
+            if(num ==1){writeView();}
+            else if(num ==2){printView();}
+        }
+    }
 
+
+
+
+    //1. 등록 입출력화면
     public void writeView(){
-        scan.nextLine();
         System.out.print("작성자 : "); String writer = scan.nextLine();
-        System.out.println("내용 : "); String content = scan.nextLine();
+        System.out.print("내용 : "); String content = scan.nextLine();
         boolean saveResult = bc.doPost(content, writer);//컨트롤러에게 입력받은 content, writer 전달하여 결과 받아오기
         //2. 받은 결과에 따른 화면 출력
         if(saveResult){
