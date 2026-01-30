@@ -33,8 +33,6 @@ public class BoardView {
     }
 
 
-
-
     //1. 등록 입출력화면
     public void writeView(){
         System.out.print("작성자 : "); String writer = scan.nextLine();
