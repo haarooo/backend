@@ -28,9 +28,19 @@ public class UserController {
     }
 
     //로그인
+    private int loginSession = 0; //세션이란 일정한 저장소 구역
     public String login(String id , int pwd){
-        String loginResult = ud.login(id, pwd);
-        return loginResult;
+        UserDto loginResult = ud.login(id, pwd);
+        if(loginResult != null){loginSession = loginResult.getUserNo();
+            return loginResult.getNickname();
+        }
+        return null;
     }
+
+    public boolean logout(){
+        loginSession = 0;
+        return true;
+    }
+    public int getLoginSession(){return loginSession;}
 
 }//c end

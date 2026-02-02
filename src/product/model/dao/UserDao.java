@@ -29,13 +29,21 @@ public class UserDao {
 
 
     //로그인 구현
-    public String login(String id , int pwd){
+    public UserDto login(String id , int pwd){
         for(int index = 0 ; index <= userLists.size() -1 ; index++){
             UserDto userDto =userLists.get(index);
             if(userDto.getId().equals(id) && userDto.getPwd() == pwd){
-                return userDto.getNickname();
+                return userDto;
             }
-        }return "로그인실패";
+        }return null;
+    }
+
+    public String findName(int loginNo){
+        for(int index = 0 ; index<= userLists.size()-1 ; index++){
+            if(userLists.get(index).getUserNo() == loginNo){
+                return userLists.get(index).getNickname();
+            }
+        }return null;
     }
 
 
