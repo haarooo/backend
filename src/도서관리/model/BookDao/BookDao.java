@@ -19,7 +19,7 @@ public class BookDao {
     public boolean borrow(String name) {
         for(int index = 0 ; index <= bookList.size() -1 ; index++){
             if(bookList.get(index).getName().equals(name)){
-               false = bookList.get(index).isAvailable()
+                
                //내 대출목록에 추가
                return true;
             }
