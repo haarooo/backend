@@ -28,6 +28,15 @@ drop
 database 
 mydb0130;
 
+-- if
+drop database if exists mydb0130;
+-- 5. 데이터베이스 황성화(현재 DB서버네 여려개 데이터베이스가 존재하므로 사용할 DB를 선택)
+use mydb0130;
+	-- 사용한다 -- 사용할 데이터베이스명
+    
+    
+    
+
 
 
 
