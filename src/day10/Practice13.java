@@ -2,21 +2,46 @@ package day10;
 
 public class Practice13 {
     public static void main(String[] args) {
+        //1
         Cat1 cat = new Cat1();
         cat.makeSound();
-
         Dog dog = new Dog();
         dog.makeSound();
 
+        //2
         System.out.println(RemoteControl.MAX_VOLUME);
         System.out.println(RemoteControl.MIN_VOLUME);
 
-
+        //3
         Runnable runner;
         runner = new Person1();
         runner.run();
         runner = new Car1();
         runner.run();
+
+        //4
+        Sword2 sword2 = new Sword2();
+        Gun2 gun2 = new Gun2();
+        Character1 character1 = new Character1();
+        character1.useWeapon(sword2);
+        character1.useWeapon(gun2);
+
+        //5
+        Duck duck =new Duck();
+        duck.fly();
+        duck.swimmable();
+
+        //6
+        Duck duck1 = new Duck();
+        Object object = duck1;
+
+        if(object instanceof Swimmable){
+            Swimmable object1 = (Swimmable)object;
+            object1.swimmable();
+        }if(object instanceof Flyable) {
+            Flyable object1 = (Flyable)object;
+            object1.fly();
+        }
 
 
 
@@ -62,38 +87,42 @@ class Car1 implements Runnable{
 }
 
 
+interface Attackable{
+    public void attack();
 
-/*[문제 3] 다형성: 인터페이스 타입 변환
-1. "달립니다."라는 추상 메소드 run()을 가진 Runnable 인터페이스를 정의하세요.
-2. Runnable을 구현하여 각각 "사람이 달립니다.", "자동차가 달립니다."를 출력하는 Person 클래스와 Car 클래스를 만드세요.
-3. main 함수에서 Runnable 타입의 변수 runner를 선언하세요.
-4. runner 변수에 new Person()을 대입하여 run() 메소드를 호출하고, 그 다음 new Car()를 대입하여 run() 메소드를 호출하
-여 결과가 다르게 나오는 것을 확인하세요.*/
+}
+class Sword2 implements Attackable{
+    public void attack(){
+        System.out.println("검으로 공격");
+    }
+}
+class Gun2 implements Attackable{
+    public void attack(){
+        System.out.println("총으로 공격");
+    }
+}
+class Character1 {
+    public void useWeapon(Attackable weapon){
+        weapon.attack();
+    }
+}
+interface Flyable{
+    public default void fly(){
+        System.out.println("하늘을 납니다");
+    }
+}
+interface Swimmable{
+    public default void swimmable(){
+        System.out.println("물에서 헤엄칩니다");
+    }
+}
+class Duck implements Flyable , Swimmable{}
 
 
 
 
 
-/*[문제 4] 다형성을 활용한 매개변수
-1. "공격!"이라는 추상 메소드 attack()을 가진 Attackable 인터페이스를 정의하세요.
-2. Attackable을 구현하는 Sword 클래스와 Gun 클래스를 만드세요.
-3. Attackable 타입의 객체를 매개변수로 받아, 해당 객체의 attack() 메소드를 호출하는 Character 클래스와
-useWeapon(Attackable weapon) 메소드를 만드세요.
-4. main 함수에서 Sword 객체와 Gun 객체를 생성한 뒤, 이 객체들을 Character의 useWeapon() 메소드에 인자로 전달하여
-동작을 확인하세요.*/
 
-
-/*[문제 5] 다중 인터페이스 구현
-1. "하늘을 납니다."를 출력하는 fly() 추상 메소드를 가진 Flyable 인터페이스를 만드세요.
-2. "물에서 헤엄칩니다."를 출력하는 swimmable() 추상 메소드를 가진 Swimmable 인터페이스를 만드세요.
-3. Duck 클래스가 Flyable과 Swimmable 두 인터페이스를 모두 구현하도록 작성하세요.
-4. main 함수에서 Duck 객체를 생성하고, fly()와 swimmable() 메소드를 모두 호출하여 결과를 확인하세요.*/
-
-/*[문제 6] instanceof와 인터페이스
-1. 문제 5에서 만든 Flyable, Swimmable 인터페이스와 Duck 클래스를 활용합니다.
-2. main 함수에서 Duck 객체를 생성하고, Object 타입의 변수에 저장하세요.
-3. if문과 instanceof 연산자를 사용하여, 해당 객체가 Flyable 타입인지, Swimmable 타입인지 각각 확인하고, 맞다면 해당 인
-터페이스 타입으로 강제 형변환하여 메소드를 호출하세요.*/
 
 
 /*[문제 7] 인터페이스를 이용한 객체 교체
