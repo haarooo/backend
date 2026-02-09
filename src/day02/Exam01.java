@@ -30,6 +30,6 @@ public class Exam01 {
         long lvalue = (long)fvalue;
         int ivalue = (int)lvalue;
         short svalue = (short)ivalue;
-        byte bvalue = (byte)svalue;
+        byte bvalue = (byte)svalue; //aa
     }
 }
