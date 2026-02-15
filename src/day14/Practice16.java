@@ -3,6 +3,7 @@ package day14;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Practice16 {
     static void main() {
@@ -43,8 +44,17 @@ public class Practice16 {
         }catch(Exception e){}
         System.out.printf("[최종] total = %d / 예상 = 1500 \n" , cart.getTotal());
 
+
         //문제3
         ExecutorService pool = Executors.newFixedThreadPool(3);
+        for (int i = 1; i <= 10; i++) {
+            pool.execute(new InquiryTask(i));
+        }
+        try {pool.awaitTermination(30, TimeUnit.SECONDS);
+        }catch (Exception e) {pool.shutdownNow();
+        }
+        System.out.println("[안내] 모든 문의 처리 종료");
+
 
 
 
@@ -81,13 +91,17 @@ class Cart{
     }
 }
 
-class InquiryTask implements Runnable{
+class InquiryTask implements Runnable {
+    int inquiryNumber;
+    public InquiryTask(int inquiryNumber) {
+        this.inquiryNumber = inquiryNumber;
+    }
     @Override
     public void run() {
-        for(int i = 1 ; i<=10 ; i++){
-            String name = "[처리시작] 문의" + i;
-
-        }
+        System.out.println("[처리시작] 문의 " + inquiryNumber);
+        try {Thread.sleep(2000);
+        } catch (Exception e) {}
+        System.out.println("[처리완료] 문의 " + inquiryNumber);
     }
 }
 
