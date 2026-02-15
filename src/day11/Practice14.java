@@ -124,8 +124,6 @@ System.out.println(arr[5]); */
             System.out.println("알 수 없는 오류가 발생했습니다");
         }
 
-
-
     }
 }
 
